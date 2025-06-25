@@ -1,0 +1,22 @@
+[package]
+name = "semen-mafia"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "semen_mafia"
+
+# This makes release the default
+[profile.dev]
+opt-level = "z"          # Optimize for size aggressively  
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true             # Remove debug symbols
+overflow-checks = false  # Remove overflow checks
+
+[dependencies]
+pinocchio = "0.8.4"
+pinocchio-token = "0.3.0"
+pinocchio-system = "0.2.3"
